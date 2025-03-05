@@ -221,6 +221,11 @@ function createGameSession(){
     const buttonsContainer = document.getElementById("buttons-container");
     buttonsContainer.innerHTML = ''
 
+    /** звук неправильной буквы */
+    const letterWrongAudio = document.getElementById("letter-wrong")
+    /** звук правильной буквы  */
+    const letterCorrectAudio = document.getElementById("letter-correct")
+
 // Массив русских букв
     const russianAlphabet = [
         "А", "Б", "В", "Г", "Д", "Е", "Ё", "Ж", "З", "И",
@@ -278,14 +283,14 @@ function createGameSession(){
                 document.getElementsByName(letter.toUpperCase()).forEach((element) => {
                     element.value = letter;
                 })
+                letterCorrectAudio.play()
             } else {
-                alert(`К сожалению, в слове нет буквы "${letter}"`)
+                letterWrongAudio.play()
             }
             const wordContainerChildNodes = [...wordContainer.childNodes]
             if (wordContainerChildNodes.every(node => !!node.value)) {
                 wordContainerChildNodes.forEach(node => node.className = 'input_glow')
             }
-
         });
         return button;
     }
