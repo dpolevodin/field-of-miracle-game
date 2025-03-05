@@ -369,3 +369,9 @@
   width: 360px;
   transform: rotate(-30deg);
 }
+
+.audio {
+  position: absolute;
+  right: 16px;
+  top: 16px;
+}
