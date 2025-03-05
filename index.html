@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ru" >
+<head>
+  <meta charset="UTF-8">
+  <title>Поле чудес</title>
+  <!-- используем всю ширину экрана -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- подключаем стили -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Russo+One&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="question-number-label" class="question-number-label"></div>
+<div id="word-container" class="word-container"></div>
+<button id="next-question-button" class="next-question-button">Следующий вопрос</button>
+<button id="show-answer-button" class="show-answer-button">Показать слово</button>
+<!-- главный блок -->
+<div class="deal-wheel">
+  <!-- блок с призами -->
+  <ul class="spinner"></ul>
+  <!-- язычок барабана -->
+  <div class="ticker"></div>
+  <!-- кнопка -->
+  <button class="btn-spin">Крутите барабан</button>
+</div>
+<div id="buttons-container" class="alphabet-buttons"></div>
+<div id="question-container" class="question-container"></div>
+<img src="img_2.png" class="yakubovich">
+  <!-- подключаем скрипт -->
+<script  src="questions.js"></script>
+<script  src="script.js"></script>
+
+</body>
+</html>
