@@ -13,26 +13,41 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<div id="question-number-label" class="question-number-label"></div>
-<div id="word-container" class="word-container"></div>
-<button id="next-question-button" class="next-question-button">Следующий вопрос</button>
-<button id="show-answer-button" class="show-answer-button">Показать слово</button>
-<!-- главный блок -->
-<div class="deal-wheel">
-  <!-- блок с призами -->
-  <ul class="spinner"></ul>
-  <!-- язычок барабана -->
-  <div class="ticker"></div>
-  <!-- кнопка -->
-  <button class="btn-spin">Крутите барабан</button>
+<button id="start-button" class="start-button">Начать!</button>
+<div id="game-container" class="game-container">
+  <div id="question-number-label" class="question-number-label"></div>
+  <div id="word-container" class="word-container"></div>
+  <button id="next-question-button" class="next-question-button">Следующий вопрос</button>
+  <button id="show-answer-button" class="show-answer-button">Показать слово</button>
+  <!-- главный блок -->
+  <div class="deal-wheel">
+    <!-- блок с призами -->
+    <ul class="spinner"></ul>
+    <!-- язычок барабана -->
+    <div class="ticker"></div>
+    <!-- кнопка -->
+    <button class="btn-spin">Крутите барабан</button>
+  </div>
+  <div id="buttons-container" class="alphabet-buttons"></div>
+  <div id="question-container" class="question-container"></div>
+  <div id="floating-buttons" class="floating-buttons-container">
+    <button id="auto-float-button" class="float-button"></button>
+    <button id="money-float-button" class="float-button"></button>
+    <button id="prize-float-button" class="float-button"></button>
+  </div>
 </div>
-<div id="buttons-container" class="alphabet-buttons"></div>
-<div id="question-container" class="question-container"></div>
-<img src="img.png" class="yakubovich">
 <!-- Звуки игры -->
+<audio src="start_game.mp3" id="start-game"></audio>
 <audio src="pole_letter_wrong.mp3" id="drum-spin"></audio>
 <audio src="pole_letter_wrong.mp3" id="letter-wrong"></audio>
 <audio src="pole_letter_correct.mp3" id="letter-correct"></audio>
+<audio src="baraban_spin.mp3" id="baraban-spin"></audio>
+<!-- Звуки для плавающих кнопок -->
+<audio src="auto.mp3" id="auto-voice" class="float-audio"></audio>
+<audio src="yakubovich-voice.mp3" id="yakubovich-voice" class="float-audio"></audio>
+<audio src="prize.mp3" id="prize-voice" class="float-audio"></audio>
+
+<img src="img.png" class="yakubovich" id="yakubovich">
   <!-- подключаем скрипт -->
 <script  src="questions.js"></script>
 <script  src="script.js"></script>

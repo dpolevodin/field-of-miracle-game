@@ -182,6 +182,8 @@ function createGameSession(){
 
     // отслеживаем нажатие на кнопку
     trigger.addEventListener("click", () => {
+        const runWheelVoice = document.getElementById('baraban-spin')
+        runWheelVoice.play()
         // делаем её недоступной для нажатия
         trigger.disabled = true;
         // задаём начальное вращение колеса
@@ -306,9 +308,45 @@ function createGameSession(){
     })
 
     createFieldsForAnswer(answer)
+
+    /** Плавающие кнопки для звкуков из игры */
+    const floatButtons = document.getElementsByClassName('float-button')
+    /** Элементы запуска звуков */
+    const floatButtonsAudio = document.getElementsByClassName('float-audio');
+
+    /** Автомобиль */
+    floatButtons[0].addEventListener('click', () => {
+        floatButtonsAudio[0].play()
+    })
+
+    /** Все ваше */
+    floatButtons[1].addEventListener('click', () => {
+        floatButtonsAudio[1].play()
+    })
+
+    /** Сектор приз */
+    floatButtons[2].addEventListener('click', () => {
+        floatButtonsAudio[2].play()
+    })
 }
 
-createGameSession()
+// createGameSession()
+/** Запуск игры */
+const gameContainer = document.getElementById("game-container");
+const startGameAudio = document.getElementById("start-game");
+
+
+const startButton = document.getElementById('start-button');
+startButton.addEventListener("click", () => {
+    createGameSession()
+    startGameAudio.play()
+    startButton.style.display = "none";
+    gameContainer.style.display = "flex";
+
+    const yakubovichImage = document.getElementById('yakubovich')
+    yakubovichImage.style.bottom = '-60px'
+    console.log(yakubovichImage, 'yakubovichImage')
+})
 
 /** Переключение вопросов */
 const nextQuestionButton = document.getElementById("next-question-button");
