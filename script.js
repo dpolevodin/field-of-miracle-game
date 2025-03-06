@@ -1,6 +1,7 @@
 /** Текущий номер вопроса */
 let CURRENT_ANSWER_NUMBER = 0
 let ANSWERS_COUNT = QUESTIONS?.length
+let SHOW_FIRST_ANSWER = false
 
 // надписи и цвета на секторах
 const prizes = [
@@ -252,17 +253,12 @@ function createGameSession(){
     /** Записываем вопрос в контейнер */
     const questionContainer = document.getElementById("question-container");
     questionContainer.textContent = question
+    questionContainer.style.display = SHOW_FIRST_ANSWER ? "flex" : "none";
 
     /** Создаем пустые input на каждый символ ответа или заполняем по условию значением */
     function createWordsInput(letter) {
         const textarea = document.createElement("input");
         textarea.name = letter.toUpperCase();
-        return textarea;
-    }
-
-    function createWordsInputWithValue(letter) {
-        const textarea = document.createElement("input");
-        textarea.value = letter.toUpperCase();
         return textarea;
     }
 
@@ -345,7 +341,6 @@ startButton.addEventListener("click", () => {
 
     const yakubovichImage = document.getElementById('yakubovich')
     yakubovichImage.style.bottom = '-60px'
-    console.log(yakubovichImage, 'yakubovichImage')
 })
 
 /** Переключение вопросов */
@@ -353,6 +348,15 @@ const nextQuestionButton = document.getElementById("next-question-button");
 nextQuestionButton.addEventListener("click", () => {
     if (CURRENT_ANSWER_NUMBER < ANSWERS_COUNT - 1) {
         CURRENT_ANSWER_NUMBER = CURRENT_ANSWER_NUMBER + 1
+        createGameSession()
+    }
+})
+
+/** Переключение вопросов */
+const showFirstAnswerButton = document.getElementById("yakubovich");
+showFirstAnswerButton.addEventListener("click", () => {
+    if (!SHOW_FIRST_ANSWER) {
+        SHOW_FIRST_ANSWER = true
         createGameSession()
     }
 })
